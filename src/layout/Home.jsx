@@ -3,14 +3,15 @@ import { Outlet } from "react-router-dom";
 const Home = () => {
     return (
         <div className="flex">
-            <div className="w-64 bg-slate-900 min-h-screen">
-                <ul className="text-white menu pl-4">
-                    <li>Home</li>
+            <div className="w-[200px] bg-slate-900 min-h-screen">
+                <ul className="text-white menu pl-10 mt-10">
+                    <li className="font-semibold">
+                         Home
+                    </li>
                 </ul>
-
             </div> 
             <div className="flex-1">
-                <Outlet></Outlet>
+                <Outlet />
             </div>
         </div>
     );
