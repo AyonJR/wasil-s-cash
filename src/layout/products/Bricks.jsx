@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom"; // Use for navigation
 
 const Bricks = () => {
   const [bricks, setBricks] = useState([]);
-
-  const Bricks = bricks.filter((brick) => brick.category === "bricks");
+  const navigate = useNavigate(); // For navigation
 
   useEffect(() => {
     fetch("http://localhost:5000/products")
@@ -11,7 +11,12 @@ const Bricks = () => {
       .then((data) => setBricks(data));
   }, []);
 
-  console.log(bricks);
+  const handleNavigateToForm = (brickId) => {
+    navigate(`/form/${brickId}`);
+  };
+
+  const filteredBricks = bricks.filter((brick) => brick.category === "bricks");
+
   return (
     <div>
       <div className="p-8">
@@ -20,17 +25,18 @@ const Bricks = () => {
         </div>
         <div className="container mx-auto w-full">
           <div className="grid container grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {Bricks.map((brick) => (
+            {filteredBricks.map((brick) => (
               <div
                 key={brick._id}
                 className="bg-white shadow-lg rounded-lg p-4"
+                onClick={() => handleNavigateToForm(brick._id)} 
               >
                 <img
                   src={brick.image}
                   alt={brick.brand}
                   className="w-full h-40 object-cover rounded-md mb-4"
                 />
-                <h3 className="text-xl font-bold  mb-2">{brick.brand}</h3>
+                <h3 className="text-xl font-bold mb-2">{brick.brand}</h3>
                 <p className="text-gray-700 font-semibold">
                   Price: {brick.price}
                 </p>

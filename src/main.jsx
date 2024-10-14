@@ -8,6 +8,7 @@ import {
 import './index.css'
 import Home from './layout/Home.jsx';
 import Products from './layout/products/Products.jsx';
+import Form from './form/Form.jsx'
 
 
 const router = createBrowserRouter([
@@ -18,7 +19,11 @@ const router = createBrowserRouter([
        {
         path : "/" , 
         element: <Products></Products>
-       }
+       } ,
+       {
+        path: "/form/:id", 
+        element: <Form></Form>
+      }
     ]
     
   },
