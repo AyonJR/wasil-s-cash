@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Irons from "./Irons";
+import Bricks from "./Bricks";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -21,7 +22,7 @@ const Products = () => {
      <div className="container mx-auto w-full">
      <div className="grid container grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {cements.map((cement) => (
-          <div key={cement._id} className="bg-white shadow-lg rounded-lg p-4">
+          <button key={cement._id} className="bg-white shadow-lg rounded-lg p-4">
             <img
               src={cement.image}
               alt={cement.brand}
@@ -31,12 +32,15 @@ const Products = () => {
             <p className="text-gray-700 font-semibold">
               Price: {cement.price}
             </p>
-          </div>
+          </button>
         ))}
       </div>
      </div>
      <div className="mt-8">
       <Irons ></Irons>
+     </div>
+     <div className="mt-8">
+       <Bricks></Bricks>
      </div>
     </div>
   );
