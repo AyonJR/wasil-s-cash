@@ -5,9 +5,9 @@ import { useParams } from "react-router-dom";
 const Form = () => {
   const { id } = useParams();
   const [brick, setBrick] = useState(null);
-  const [quantity, setQuantity] = useState(1);
-  const [rate, setRate] = useState(0);
-  const [laborCost, setLaborCost] = useState(0);
+  const [quantity, setQuantity] = useState();
+  const [rate, setRate] = useState();
+  const [laborCost, setLaborCost] = useState();
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
@@ -29,7 +29,8 @@ const Form = () => {
   }
   return (
     <div>
-      <div className="p-8">
+      <div className="flex justify-center">
+      <div className="p-8 w-1/2">
         <h2 className="text-2xl font-bold mb-4">
           Purchase Form for {brick.brand}
         </h2>
@@ -114,13 +115,16 @@ const Form = () => {
             />
           </div>
 
+          <div className="flex justify-center">
           <button
             type="submit"
             className="bg-blue-500 text-white py-2 px-4 rounded"
           >
-            Submit Purchase
+            Submit Order
           </button>
+          </div>
         </form>
+      </div>
       </div>
     </div>
   );
