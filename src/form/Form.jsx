@@ -9,6 +9,7 @@ const Form = () => {
   const [rate, setRate] = useState();
   const [laborCost, setLaborCost] = useState();
   const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [address, setAddress] = useState("");
   const [date, setDate] = useState("");
   const [memo, setMemo] = useState("");
@@ -36,6 +37,35 @@ const Form = () => {
         </h2>
 
         <form className="space-y-4">
+          
+        <div>
+            <label className="block font-semibold">Name</label>
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="border p-2 w-full"
+            />
+          </div>
+
+          <div>
+            <label className="block font-semibold">Address</label>
+            <input
+              type="text"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className="border p-2 w-full"
+            />
+          </div>
+          <div>
+            <label className="block font-semibold">Phone number</label>
+            <input
+              type="text"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              className="border p-2 w-full"
+            />
+          </div>
           <div>
             <label className="block font-semibold">Quantity</label>
             <input
@@ -66,25 +96,6 @@ const Form = () => {
             />
           </div>
 
-          <div>
-            <label className="block font-semibold">Name</label>
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              className="border p-2 w-full"
-            />
-          </div>
-
-          <div>
-            <label className="block font-semibold">Address</label>
-            <input
-              type="text"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
-              className="border p-2 w-full"
-            />
-          </div>
 
           <div>
             <label className="block font-semibold">Date</label>
